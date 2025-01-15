@@ -1,0 +1,327 @@
+<!-- @if (shouldRun) { -->
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+    (closed)="events.push('close!')">
+
+    @if (opened){
+    }
+    <p class=" "><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p>
+
+    
+    <div class="contentSideNav py-3 px-3">
+      <div class="imageDiv">
+        <img src="assets/images/projectImage.jpg" class="img-fluid" alt="">
+      </div>
+      <div class="NameSection mt-2">
+        <h5 class="text-center">Example</h5>
+      </div>
+      <div class="socialMedia px-3 text-center">
+        <i class="fa fa-linkedin-square pointer" aria-hidden="true"></i>
+      </div>
+      <div class="classSideMenu">
+        @for(item of sideNameArray; track item){
+        <div class="box d-flx my-4">
+          <div>{{item.icon}}</div>
+          <div class="menu pointer" (click)="scrollToSection(item.id)">{{item.heading}}</div>
+        </div>
+
+        }
+      </div>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    @if (!opened){
+    <p class=" "><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p>
+    }
+    <!--         
+        <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p>
+        <p>Events:</p>
+        <div class="example-events">
+          @for (e of events; track e) {
+            <div>{{e}}</div>
+          }
+        </div> -->
+
+
+
+    <!-- } @else {
+    <div>Please open on Stackblitz to see result</div>
+  } -->
+
+    <div class="mainBox px-3">
+      <section class="section1 firstHide"  appAnimateOnScroll="animate-fade-in" appAnimateOnScroll="animate-bottom-to-top" > 
+        <h1 class="ms-4" appAnimateOnScroll="animate-fade-in ">{{name}}<span class="blinking">|</span> </h1> 
+      </section>
+
+      <section id="section2" class="my-5 firstHide" appAnimateOnScroll="animate-slide-in" appAnimateOnScroll="animate-bottom-to-top">
+        <h1>Section 2</h1>
+        <p>Content for section 2</p>
+
+        <div class="row mx-0">
+          <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12 col-12">
+            <img src="assets/images/5.png" alt="" class="img-fluid">
+          </div>
+          <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12 col-12 p-0">
+            <div class="row mx-0">
+              <div class="col-12">
+                <h3>Heading</h3>
+                <p class="subHeading">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim ea repellat
+                  obcaecati.</p>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 col-12 d-flex">
+                <span>👉</span>
+                <p class="fw-bold mx-2">Heading:</p>
+                <p class="bioValue">Vlaue</p>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 col-12 d-flex">
+                <span>👉</span>
+                <p class="fw-bold mx-2">Heading:</p>
+                <p class="bioValue">Vlaue</p>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 col-12 d-flex">
+                <span>👉</span>
+                <p class="fw-bold mx-2">Heading:</p>
+                <p class="bioValue">Vlaue</p>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 col-12 d-flex">
+                <span>👉</span>
+                <p class="fw-bold mx-2">Heading:</p>
+                <p class="bioValue">Vlaue</p>
+              </div> 
+            </div> 
+          </div>
+        </div>
+         
+
+      </section>
+
+
+      <section id="section3" class="firstHide"  appAnimateOnScroll="animate-fade-in" appAnimateOnScroll="animate-bottom-to-top" >
+
+        <div class="headingSection position-relative">
+          <h1 appAnimateOnScroll="backGround" class="heading mb-0"  >Skills</h1>
+          <div class="underLine mt-2"></div>
+        </div>
+
+
+        <div class="row mx-0 gy-3 mt-3">
+          @for(data of skillBarDataArray; track $index){ 
+            <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12 col-12">
+                 <div class="d-flex align-items-between">
+                  <p class="m-0">{{data.text}}  </p>
+                  <p class="m-0 ms-auto">{{data.width}}  </p>
+                 </div> 
+                 <div class="outerBar">
+                   <div class="dynamic-bar" [style.animationName]="data.name" appAnimateOnScroll="innerBar"></div>
+                 </div>
+            </div>
+          }
+        </div>
+ 
+        
+
+        <p>Content for section 3</p>
+        <p>Content for section Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eligendi culpa, distinctio quas illum fuga optio illo, sequi minima ad possimus consequatur asperiores aliquid neque odit excepturi nemo cupiditate sit alias deserunt esse ipsa minus deleniti. Enim aperiam commodi, aut ab soluta est error esse provident laudantium amet, quia, harum facilis iusto consequuntur ullam atque quasi. Laboriosam assumenda blanditiis atque ullam, velit, quos doloremque, cum maiores aliquam facere quibusdam tempore omnis illum ab eius accusamus dignissimos nobis vitae. Id, reiciendis quaerat. Quod tempore cupiditate saepe minima totam natus delectus, porro aspernatur incidunt quaerat error nostrum. Minima inventore ipsa veniam commodi optio facere repellat libero excepturi tempora ratione officia dolor quod doloribus a adipisci, incidunt odio maiores omnis architecto magni voluptatum voluptates enim deleniti. Dicta omnis exercitationem itaque quisquam quis modi velit sapiente, nam magnam perspiciatis, nostrum officia quasi repellat laborum natus explicabo dolore harum nobis voluptates incidunt molestiae doloremque. Modi eos nisi consequuntur ratione magnam sunt pariatur nam? Magni, exercitationem eum? Saepe sapiente quisquam quos minima vitae iure ab eveniet neque reprehenderit ut! Amet nulla quos at eligendi corporis accusantium ea corrupti dolor perspiciatis quae, ullam impedit omnis sapiente? Quam fugiat officiis repellendus. Iste iure facere placeat, in cum quo! 1</p>
+    
+      </section>
+
+
+
+      <section id="section4" class="my-5 firstHide" appAnimateOnScroll="animate-fade-in" appAnimateOnScroll="animate-bottom-to-top" >
+
+        <div class="headingSection position-relative">
+          <h1 appAnimateOnScroll="backGround" class="heading mb-0"  >Resume</h1>
+          <div class="underLine mt-2"></div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde aut, at non temporibus ut est?</p>
+        </div>
+
+
+        <div class="row mx-0 gy-3 mt-3"> 
+          <div class="col-lg-6 col-12"> 
+            <div class="summarySection"> 
+            <h2 appAnimateOnScroll="backGround" class="heading mb-0">Sumary</h2>  
+              <div class="subSection ps-3">
+                <div class="boll"></div>
+                <div class="heading">
+                  <h5>Heading</h5>
+                  <p class="subHeadingSumary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores sequi
+                    aspernatur recusandae!</p>
+                </div>
+
+                <div class="subData">
+                  <ul class="list ps-0">
+                    <li>This is a list item</li>
+                    <li>This is another with an emoji</li>
+                    <li>Me three</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="eductationSection">
+              <h2>Education</h2> 
+              <div class="subSection ps-3">
+                <div class="boll"></div>
+                <div class="heading">
+                  <h5>Master of </h5>
+                  <p class="subheading1 mb-1 ps-2">2022-2029</p>
+                  <p class="subHeading2 mb-0 pb-3">address</p> 
+                </div> 
+              </div>
+              <div class="subSection ps-3">
+                <div class="boll"></div>
+                <div class="heading">
+                  <h5>Bachelor of </h5>
+                  <p class="subheading1 mb-1 ps-2">2022-2029</p>
+                  <p class="subHeading2">address</p> 
+                </div> 
+              </div>
+            </div> 
+          </div>
+
+
+    
+          <div class="col-lg-6 col-12">
+            <h2>Professional Experience</h2>
+            <div class="subSection ps-3">
+              <div class="boll"></div>
+              <div class="heading">
+                <h5>Master of </h5>
+                <p class="subheading1 mb-1 ps-2">2022-2029</p>
+                <p class="subHeading2 mb-0 pb-3">address</p>
+                <div class="subData">
+                  <ul class="list ps-0">
+                    <li>This is a list item</li>
+                    <li>This is another with an emoji</li>
+                    <li>Me three</li>
+                  </ul>
+                </div>
+                
+              </div>
+            </div>
+            <div class="subSection ps-3">
+              <div class="boll"></div>
+              <div class="heading">
+                <h5>Bachelor of </h5>
+                <p class="subheading1 mb-1 ps-2">2022-2029</p>
+                <p class="subHeading2">address</p>
+                <div class="subData">
+                  <ul class="list ps-0">
+                    <li>This is a list item</li>
+                    <li>This is another with an emoji</li>
+                    <li>Me three</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+
+      </section>
+
+
+      <section id="section5" class="firstHide"  appAnimateOnScroll="animate-fade-in" appAnimateOnScroll="animate-bottom-to-top" >
+        
+        <div class="projectDiv">
+          <div class="row gy-3 mx-0 justify-content-center">
+            <div class="col-auto">
+              <div class="projectInnerDiv">
+                <div class="tintBox">
+                  <a href="https://harshsharma2912.github.io/Gifter_Clone_Live/" target="_blank">
+                    <fa-icon [icon]="faCoffee" class="pointer projectLink">
+                    </fa-icon> 
+                  </a>
+                </div>
+                <img src="assets/images/projectImage.jpg"  class="imageZoom img-fluid" alt=""> 
+              </div>
+            </div>
+
+            <div class="col-auto">
+              <div class="projectInnerDiv">
+                <div class="tintBox">
+                  <a href="https://harshsharma2912.github.io/Gifter_Clone_Live/" target="_blank">
+                    <fa-icon [icon]="faCoffee" class="pointer projectLink">
+                    </fa-icon> 
+                  </a>
+                </div>
+                <img src="assets/images/projectImage.jpg"  class="imageZoom img-fluid" alt=""> 
+              </div>
+            </div>
+
+
+            <div class="col-lg-auto col-auto">
+              <div class="projectInnerDiv">
+                <div class="tintBox">
+                  <a href="https://harshsharma2912.github.io/Gifter_Clone_Live/" target="_blank">
+                    <fa-icon [icon]="faCoffee" class="pointer projectLink">
+                    </fa-icon> 
+                  </a>
+                </div>
+                <img src="assets/images/projectImage.jpg"  class="imageZoom img-fluid" alt=""> 
+              </div>
+            </div>
+
+
+            <div class="col-lg-auto col-auto">
+              <div class="projectInnerDiv">
+                <div class="tintBox">
+                  <a href="https://harshsharma2912.github.io/Gifter_Clone_Live/" target="_blank">
+                    <fa-icon [icon]="faCoffee" class="pointer projectLink">
+                    </fa-icon> 
+                  </a>
+                </div>
+                <img src="assets/images/projectImage.jpg"  class="imageZoom img-fluid" alt=""> 
+              </div>
+            </div>
+
+
+            <div class="col-lg-auto col-auto">
+              <div class="projectInnerDiv">
+                <div class="tintBox">
+                  <a href="https://harshsharma2912.github.io/Gifter_Clone_Live/" target="_blank">
+                    <fa-icon [icon]="faCoffee" class="pointer projectLink">
+                    </fa-icon> 
+                  </a>
+                </div>
+                <img src="assets/images/projectImage.jpg"  class="imageZoom img-fluid" alt=""> 
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </section>
+
+       
+      
+
+
+    </div>
+
+
+    <!--   
+ 
+  
+
+  
+
+  
+  <section id="section5" appAnimateOnScroll="animate-bottom-to-top">
+    <h1>Section 5</h1>
+    <p>Content for section 5</p>
+    <p>Content for section Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eligendi culpa, distinctio quas illum fuga optio illo, sequi minima ad possimus consequatur asperiores aliquid neque odit excepturi nemo cupiditate sit alias deserunt esse ipsa minus deleniti. Enim aperiam commodi, aut ab soluta est error esse provident laudantium amet, quia, harum facilis iusto consequuntur ullam atque quasi. Laboriosam assumenda blanditiis atque ullam, velit, quos doloremque, cum maiores aliquam facere quibusdam tempore omnis illum ab eius accusamus dignissimos nobis vitae. Id, reiciendis quaerat. Quod tempore cupiditate saepe minima totam natus delectus, porro aspernatur incidunt quaerat error nostrum. Minima inventore ipsa veniam commodi optio facere repellat libero excepturi tempora ratione officia dolor quod doloribus a adipisci, incidunt odio maiores omnis architecto magni voluptatum voluptates enim deleniti. Dicta omnis exercitationem itaque quisquam quis modi velit sapiente, nam magnam perspiciatis, nostrum officia quasi repellat laborum natus explicabo dolore harum nobis voluptates incidunt molestiae doloremque. Modi eos nisi consequuntur ratione magnam sunt pariatur nam? Magni, exercitationem eum? Saepe sapiente quisquam quos minima vitae iure ab eveniet neque reprehenderit ut! Amet nulla quos at eligendi corporis accusantium ea corrupti dolor perspiciatis quae, ullam impedit omnis sapiente? Quam fugiat officiis repellendus. Iste iure facere placeat, in cum quo! 1</p>
+
+  </section>
+   -->
+
+
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

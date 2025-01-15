@@ -1,0 +1,237 @@
+/* Fade-in Animation */
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+    display: block !important;
+  }
+  
+ 
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Slide-in Animation */
+  .animate-slide-in {
+    animation: slideIn 1s ease-out forwards;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Zoom-in Animation */
+  .animate-zoom-in {
+    animation: zoomIn 1s ease-out forwards;
+  }
+
+  
+ 
+  
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+
+  /* Bottom-to-Top Animation */
+.animate-bottom-to-top {
+    opacity: 0; /* Initial state: Invisible */
+    transform: translateY(200px); /* Start below the final position */
+    animation: bottomToTop .8s ease-out forwards; /* Smooth animation */
+  }
+  
+  @keyframes bottomToTop {
+    to {
+      opacity: 1; /* End state: Fully visible */
+      transform: translateY(0); /* End state: At the final position */
+    }
+  }
+  
+  
+
+
+  .example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .example-events {
+    width: 300px;
+    height: 200px;
+    overflow: auto;
+    border: 1px solid #555;
+  }
+  
+
+
+//   sideNavCss
+.contentSideNav{
+    min-width: 250px;
+
+    .imageDiv{
+        width: 100px;
+        height: 100px;
+        border: solid;
+        border-radius: 50%;
+        margin: auto;
+    }
+    .menu{
+        color: gray;
+    }
+    .menu:hover{
+        color: white;
+    }
+}
+
+
+
+.section1{
+  min-height: 100vh;
+  border: solid;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+}
+.blinking{
+  animation: ease blink .8s infinite;
+}
+@keyframes blink {
+  
+  
+  50%{
+    opacity: 0;
+  }
+}
+
+
+
+
+// section 3
+
+.outerBar{
+  background-color: gray;
+  height: 10px;
+}
+
+.innerBar{
+  height: 10px; 
+  animation-duration: 10s;
+  animation-fill-mode: forwards;   
+}
+
+.underLine{ 
+  height: 5px;
+  width: 50px;
+  background-color: var(--themeColor);
+}
+
+ 
+
+// section 4
+.list {
+  list-style: none;
+}
+
+.list li:before {
+  content: "👉";
+  margin: 0 16px 0 0;
+}
+
+.subSection{
+  border-left: solid 3px var(--themeColor);
+  position: relative;
+  .boll{
+    position: absolute;
+    top: 0;
+    border: solid 3px var(--themeColor);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    left: -11px;
+  }
+}
+
+// section 5
+
+.projectInnerDiv{
+  position: relative;
+  overflow: hidden; 
+  
+
+ 
+  .projectLink{
+      display: none;
+      color: white;
+      font-size: 22px;
+  }
+  .projectLink:hover{
+    
+    color: var(--themeColor);
+     
+}
+
+  
+}
+.imageZoom{
+   object-fit: cover;  /* Ensure the image covers the area without distorting */
+  transition: transform 0.3s ease;
+  width: 200px;
+  max-width: 100%;
+}
+
+.projectInnerDiv:hover{
+  
+  .tintBox{
+    background-color: #00000061;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    z-index: 5;
+  }
+
+  .projectLink{
+    display: block;
+  } 
+  .imageZoom{
+    transform: scale(1.2);
+  }
+
+}
+
+
+
+
+
+
+// global
+.pointer{
+  cursor: pointer;
+}
+
+
+ 
