@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,HostListener} from '@angular/core';
 import { Directive, ElementRef, Renderer2, Input, OnInit } from '@angular/core';
 import { AnimateOnScrollDirective } from '../directives/animate-on-scroll.directive';
 import {MatButtonModule} from '@angular/material/button';
@@ -6,7 +6,9 @@ import {FormsModule} from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faLink } from '@fortawesome/free-solid-svg-icons';
+import { faL, faLink } from '@fortawesome/free-solid-svg-icons';
+import { style } from '@angular/animations';
+import { BehaviorSubject } from 'rxjs';
  
 
 
@@ -52,9 +54,17 @@ export class HomeComponent  {
     }
   ]
 
+
+  isLargeScreen = window.innerWidth > 768; 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.isLargeScreen = window.innerWidth > 768;
+    this.opened = this.isLargeScreen;
+  }
+  
   constructor(private render:Renderer2, private el:ElementRef){
     this.typingFun();
-
+ 
   }
 
   textToType:any=[{"text" : "Example"}];
@@ -135,6 +145,11 @@ export class HomeComponent  {
       "name" : "--css"
     },
     {
+      "text" : "Bootstrap", 
+      "width" : "95%",
+      "name" : "--Bootstrap"
+    },
+    {
       "text" : "Js", 
       "width" : "10%", 
       "name" : "--java"
@@ -143,8 +158,17 @@ export class HomeComponent  {
       "text" : "Angular", 
       "width" : "100%",
       "name" : "--python"
-    }
-    
+    },
+    {
+      "text" : "Ionic", 
+      "width" : "100%",
+      "name" : "--ionic"
+    },
+    {
+      "text" : "WordPress", 
+      "width" : "100%",
+      "name" : "--wordpress"
+    } 
   ]
 
   dynamicWidth:any = "80%"; 
@@ -213,7 +237,8 @@ export class HomeComponent  {
   
 
 
-  scrollToSection(targetId:any): void {
+  scrollToSection(targetId:any, status:boolean): void {
+    this.opened = status;
     const target = document.getElementById(targetId);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -221,6 +246,9 @@ export class HomeComponent  {
   }
 
   
+  toggleSlider(){
+    this.opened = true;
+  }
  
 
  

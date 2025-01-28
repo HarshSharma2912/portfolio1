@@ -1,5 +1,5 @@
 <!-- @if (shouldRun) { -->
-<mat-sidenav-container class="example-container">
+<mat-sidenav-container class="matContainer" >
   <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
     (closed)="events.push('close!')">
 
@@ -18,13 +18,21 @@
       <div class="socialMedia px-3 text-center">
         <i class="fa fa-linkedin-square pointer" aria-hidden="true"></i>
       </div>
-      <div class="classSideMenu">
+      <div class="classSideMenu d-lg-block d-none">
         @for(item of sideNameArray; track item){
         <div class="box d-flx my-4">
           <div>{{item.icon}}</div>
-          <div class="menu pointer" (click)="scrollToSection(item.id)">{{item.heading}}</div>
-        </div>
+          <div class="menu pointer" (click)="scrollToSection(item.id, true)">{{item.heading}}</div>
+        </div> 
+        }
+      </div>
 
+      <div class="classSideMenu d-lg-none d-block">
+        @for(item of sideNameArray; track item){
+        <div class="box d-flx my-4">
+          <div>{{item.icon}}</div>
+          <div class="menu pointer" (click)="scrollToSection(item.id, false)">{{item.heading}}</div>
+        </div> 
         }
       </div>
     </div>
@@ -32,7 +40,8 @@
 
   <mat-sidenav-content>
     @if (!opened){
-    <p class=" "><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p>
+      <i class="fa-solid fa-bars pointer" style="position: relative; z-index: 100;" (click)="toggleSlider()"></i>
+    <!-- <p class=" "><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p> -->
     }
     <!--         
         <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p>
@@ -49,65 +58,85 @@
     <div>Please open on Stackblitz to see result</div>
   } -->
 
-    <div class="mainBox px-3">
-      <section class="section1 firstHide"  appAnimateOnScroll="animate-fade-in" appAnimateOnScroll="animate-bottom-to-top" > 
+    <div class="mainBox ">
+      {{isLargeScreen}}
+      <section class="section1 firstHide body px-3"  appAnimateOnScroll="animate-fade-in" appAnimateOnScroll="animate-bottom-to-top" >  
+        <ul class="circles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+    </ul> 
         <h1 class="ms-4" appAnimateOnScroll="animate-fade-in ">{{name}}<span class="blinking">|</span> </h1> 
       </section>
 
-      <section id="section2" class="my-5 firstHide" appAnimateOnScroll="animate-slide-in" appAnimateOnScroll="animate-bottom-to-top">
-        <h1>Section 2</h1>
-        <p>Content for section 2</p>
+      <section id="section2" class="my-5 firstHide px-3" appAnimateOnScroll="animate-slide-in" appAnimateOnScroll="animate-bottom-to-top">
+
+        <div class="headingSection position-relative">
+          <h1 appAnimateOnScroll="backGround" class="heading mb-0">About</h1>
+          <div class="underLine mt-2"></div>
+          <p>I’m a frontend developer with 1.5 years of experience working at Benepik Pvt Ltd, where I’ve had the opportunity to develop dynamic web applications and Android apps. I specialize in Angular, Ionic, HTML, CSS, and WordPress development.</p>
+        </div> 
 
         <div class="row mx-0">
           <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12 col-12">
-            <img src="assets/images/5.png" alt="" class="img-fluid">
+            <img src=" " alt="" class="img-fluid">
           </div>
           <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12 col-12 p-0">
             <div class="row mx-0">
               <div class="col-12">
-                <h3>Heading</h3>
+                <h3>Frontend Developer and Wordpress Developer</h3>
                 <p class="subHeading">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim ea repellat
                   obcaecati.</p>
+              </div> 
+              <div class="col-xl-6 col-lg-6 col-md-12 col-12 d-flex">
+                <span>👉</span>
+                <p class="fw-bold mx-2">Phone:</p>
+                <p class="bioValue">8979579309</p>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-12 col-12 d-flex">
                 <span>👉</span>
-                <p class="fw-bold mx-2">Heading:</p>
-                <p class="bioValue">Vlaue</p>
+                <p class="fw-bold mx-2">City:</p>
+                <p class="bioValue">Mathura</p>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-12 col-12 d-flex">
                 <span>👉</span>
-                <p class="fw-bold mx-2">Heading:</p>
-                <p class="bioValue">Vlaue</p>
-              </div>
+                <p class="fw-bold mx-2">Degree:</p>
+                <p class="bioValue">Master (MCA)</p>
+              </div> 
               <div class="col-xl-6 col-lg-6 col-md-12 col-12 d-flex">
                 <span>👉</span>
-                <p class="fw-bold mx-2">Heading:</p>
-                <p class="bioValue">Vlaue</p>
-              </div>
+                <p class="fw-bold mx-2">Email:</p>
+                <p class="bioValue">{{'harshsharmaa385@gmail.com'}}</p>
+              </div> 
               <div class="col-xl-6 col-lg-6 col-md-12 col-12 d-flex">
                 <span>👉</span>
-                <p class="fw-bold mx-2">Heading:</p>
-                <p class="bioValue">Vlaue</p>
+                <p class="fw-bold mx-2">Freelance:</p>
+                <p class="bioValue">Available</p>
               </div> 
             </div> 
           </div>
-        </div>
-         
-
+        </div> 
       </section>
 
 
-      <section id="section3" class="firstHide"  appAnimateOnScroll="animate-fade-in" appAnimateOnScroll="animate-bottom-to-top" >
+      <section id="section3" class="firstHide px-3"  appAnimateOnScroll="animate-fade-in" appAnimateOnScroll="animate-bottom-to-top" >
 
         <div class="headingSection position-relative">
-          <h1 appAnimateOnScroll="backGround" class="heading mb-0"  >Skills</h1>
+          <h1 appAnimateOnScroll="backGround" class="heading mb-0">Skills</h1>
           <div class="underLine mt-2"></div>
         </div>
 
 
         <div class="row mx-0 gy-3 mt-3">
           @for(data of skillBarDataArray; track $index){ 
-            <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12 col-12">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                  <div class="d-flex align-items-between">
                   <p class="m-0">{{data.text}}  </p>
                   <p class="m-0 ms-auto">{{data.width}}  </p>
@@ -121,17 +150,17 @@
  
         
 
-        <p>Content for section 3</p>
+        <!-- <p>Content for section 3</p>
         <p>Content for section Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eligendi culpa, distinctio quas illum fuga optio illo, sequi minima ad possimus consequatur asperiores aliquid neque odit excepturi nemo cupiditate sit alias deserunt esse ipsa minus deleniti. Enim aperiam commodi, aut ab soluta est error esse provident laudantium amet, quia, harum facilis iusto consequuntur ullam atque quasi. Laboriosam assumenda blanditiis atque ullam, velit, quos doloremque, cum maiores aliquam facere quibusdam tempore omnis illum ab eius accusamus dignissimos nobis vitae. Id, reiciendis quaerat. Quod tempore cupiditate saepe minima totam natus delectus, porro aspernatur incidunt quaerat error nostrum. Minima inventore ipsa veniam commodi optio facere repellat libero excepturi tempora ratione officia dolor quod doloribus a adipisci, incidunt odio maiores omnis architecto magni voluptatum voluptates enim deleniti. Dicta omnis exercitationem itaque quisquam quis modi velit sapiente, nam magnam perspiciatis, nostrum officia quasi repellat laborum natus explicabo dolore harum nobis voluptates incidunt molestiae doloremque. Modi eos nisi consequuntur ratione magnam sunt pariatur nam? Magni, exercitationem eum? Saepe sapiente quisquam quos minima vitae iure ab eveniet neque reprehenderit ut! Amet nulla quos at eligendi corporis accusantium ea corrupti dolor perspiciatis quae, ullam impedit omnis sapiente? Quam fugiat officiis repellendus. Iste iure facere placeat, in cum quo! 1</p>
-    
+     -->
       </section>
 
 
 
-      <section id="section4" class="my-5 firstHide" appAnimateOnScroll="animate-fade-in" appAnimateOnScroll="animate-bottom-to-top" >
+      <section id="section4" class="my-5 firstHide px-3" appAnimateOnScroll="animate-fade-in" appAnimateOnScroll="animate-bottom-to-top" >
 
         <div class="headingSection position-relative">
-          <h1 appAnimateOnScroll="backGround" class="heading mb-0"  >Resume</h1>
+          <h1 appAnimateOnScroll="backGround" class="heading mb-0">Resume</h1>
           <div class="underLine mt-2"></div>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde aut, at non temporibus ut est?</p>
         </div>
@@ -144,16 +173,15 @@
               <div class="subSection ps-3">
                 <div class="boll"></div>
                 <div class="heading">
-                  <h5>Heading</h5>
-                  <p class="subHeadingSumary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores sequi
-                    aspernatur recusandae!</p>
+                  <h5>Harsh Kumar Jangid</h5>
+                  <p class="subHeadingSumary">I am a passionate frontend developer with over 1.5 years of hands-on experience in Angular, Ionic, and WordPress. My expertise lies in creating responsive, user-friendly web applications, as well as developing mobile apps. I have a strong background in both design and development, and I am always looking to improve my skills and take on new challenges.</p>
                 </div>
 
                 <div class="subData">
                   <ul class="list ps-0">
-                    <li>This is a list item</li>
-                    <li>This is another with an emoji</li>
-                    <li>Me three</li>
+                    <li>Deeg Gate, Mathura</li>
+                    <li>+123132133</li>
+                    <li>{{'harshsharmaa385@gmail.com'}}</li>
                   </ul>
                 </div>
               </div>
@@ -164,17 +192,17 @@
               <div class="subSection ps-3">
                 <div class="boll"></div>
                 <div class="heading">
-                  <h5>Master of </h5>
-                  <p class="subheading1 mb-1 ps-2">2022-2029</p>
-                  <p class="subHeading2 mb-0 pb-3">address</p> 
+                  <h5>Master of Computer applications</h5>
+                  <p class="subheading1 mb-1 ps-2">2022-2024</p>
+                  <p class="subHeading2 mb-0 pb-3">GLA University, Mathura</p> 
                 </div> 
               </div>
               <div class="subSection ps-3">
                 <div class="boll"></div>
                 <div class="heading">
-                  <h5>Bachelor of </h5>
-                  <p class="subheading1 mb-1 ps-2">2022-2029</p>
-                  <p class="subHeading2">address</p> 
+                  <h5>Bachelor of Science</h5>
+                  <p class="subheading1 mb-1 ps-2">2018-2022</p>
+                  <p class="subHeading2">BSA College, Mathura</p> 
                 </div> 
               </div>
             </div> 
