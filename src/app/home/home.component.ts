@@ -38,18 +38,28 @@ export class HomeComponent  {
       "icon" : "" 
     },
     {
-      "heading": "Resume",
+      "heading": "Skills",
       "id" : "section3", 
       "icon" : "" 
     },
     {
-      "heading": "Projects",
+      "heading": "Resume",
       "id" : "section4", 
       "icon" : "" 
     },
     {
       "heading": "Projects",
       "id" : "section5", 
+      "icon" : "" 
+    },
+    {
+      "heading": "Services",
+      "id" : "section6", 
+      "icon" : "" 
+    },
+    {
+      "heading": "Development Methodologies",
+      "id" : "section7", 
       "icon" : "" 
     }
   ]
@@ -67,7 +77,7 @@ export class HomeComponent  {
  
   }
 
-  textToType:any=[{"text" : "Example"}];
+  textToType:any=[{"text" : "Freelancer"},{"text" : "Frontend Developer"},{"text" : "Wordpress Developer"}];
 
 
 
@@ -83,6 +93,7 @@ export class HomeComponent  {
 
   typingFun(){
     let count = 0;
+    this.typeTextIndex = (this.typeTextIndex +1)%this.textToType.length;
     
  let typingText = this.textToType[this.typeTextIndex].text;
 
