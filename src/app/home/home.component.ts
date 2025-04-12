@@ -78,7 +78,7 @@ export class HomeComponent  {
   }
 
   textToType:any=[{"text" : "Freelancer"},
-    {"text" : "Frontend Developer"}
+    {"text" : "Frontend Developer"} 
     // {"text" : "Wordpress Developer"}
   ];
 
