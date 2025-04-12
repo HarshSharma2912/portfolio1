@@ -4,19 +4,34 @@
     (closed)="events.push('close!')">
 
     @if (opened){
-    }
-    <p class=" "><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p>
+    } 
+    <!-- <p class=" ">
+      <mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox>
+    </p> -->
 
     
-    <div class="contentSideNav py-3 px-3">
+    <div class="contentSideNav py-3 px-3" >
       <div class="imageDiv">
-        <img src="assets/images/projectImage.jpg" class="img-fluid" alt="">
+        <img src="assets/images/profileImage.jpg" class="profileImage" alt="">
       </div>
       <div class="NameSection mt-2">
-        <h5 class="text-center">Example</h5>
+        <h5 class="text-center">Harsh Jangid</h5>
       </div>
       <div class="socialMedia px-3 text-center">
-        <i class="fa fa-linkedin-square pointer" aria-hidden="true"></i>
+        <a href="https://www.linkedin.com/in/harsh-kumar-jangid" target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-linkedin-square pointer" aria-hidden="true"></i>
+        </a>
+        
+        <a href="tel:8979679309" class="mx-3">
+          <i class="fa fa-phone pointer" aria-hidden="true"></i>
+        </a>
+        
+        <a href="harsh.jangid2912@gmail.com">
+          <i class="fa fa-envelope pointer" aria-hidden="true"></i>
+        </a>
+        
+        
+
       </div>
       <div class="classSideMenu d-lg-block d-none">
         @for(item of sideNameArray; track item){
@@ -40,7 +55,7 @@
 
   <mat-sidenav-content>
     @if (!opened){
-      <i class="fa-solid fa-bars pointer" style="position: relative; z-index: 100;" (click)="toggleSlider()"></i>
+      <i class="fa-solid fa-bars pointer hamburger"  (click)="toggleSlider()"></i>
     <!-- <p class=" "><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p> -->
     }
     <!--         
@@ -60,7 +75,7 @@
 
     <div class="mainBox ">
       <!-- {{isLargeScreen}} -->
-      <section class="section1 firstHide body px-3"  appAnimateOnScroll="animate-fade-in" appAnimateOnScroll="animate-bottom-to-top" >  
+      <section class="section1 firstHide body px-3"  id ="section1" appAnimateOnScroll="animate-fade-in" appAnimateOnScroll="animate-bottom-to-top" >  
         <ul class="circles">
           <li></li>
           <li></li>
@@ -81,14 +96,15 @@
         <div class="headingSection position-relative">
           <h1 appAnimateOnScroll="backGround" class="heading mb-0">About</h1>
           <div class="underLine mt-2"></div>
-          <p>Passionate and detail-oriented Frontend Developer with 1.5 years of experience in creating responsive, user-friendly web applications and mobile apps. Proficient in Angular, Ionic, JavaScript, TypeScript, HTML, CSS, and Bootstrap, with expertise in RESTful API integration and UI/UX optimization. I thrive in Agile & Scrum environments and enjoy crafting dynamic, scalable, and efficient web solutions.</p>
+          <p>Passionate and detail-oriented Frontend Developer with 1.9 years of experience in creating responsive, user-friendly web applications and mobile apps. Proficient in Angular, Ionic, JavaScript, TypeScript, HTML, CSS, and Bootstrap, with expertise in RESTful API integration and UI/UX optimization. I thrive in Agile & Scrum environments and enjoy crafting dynamic, scalable, and efficient web solutions.</p>
         </div> 
 
         <div class="row mx-0">
-          <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12 col-12">
+          <!-- <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12 col-12">
             <img src=" " alt="" class="img-fluid">
-          </div>
-          <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12 col-12 p-0">
+          </div> -->
+          <!-- <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12 col-12 p-0"> -->
+            <div class="col-12 p-0">
             <div class="row mx-0">
               <div class="col-12">
                 <h3>Frontend Developer and Wordpress Developer</h3>
@@ -98,7 +114,7 @@
               <div class="col-xl-6 col-lg-6 col-md-12 col-12 d-flex">
                 <span>👉</span>
                 <p class="fw-bold mx-2">Phone:</p>
-                <p class="bioValue">8979579309</p>
+                <p class="bioValue">8979679309</p>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-12 col-12 d-flex">
                 <span>👉</span>
@@ -113,7 +129,7 @@
               <div class="col-xl-6 col-lg-6 col-md-12 col-12 d-flex">
                 <span>👉</span>
                 <p class="fw-bold mx-2">Email:</p>
-                <p class="bioValue">{{'harshsharmaa385@gmail.com'}}</p>
+                <p class="bioValue">{{'harsh.jangid2912@gmail.com'}}</p>
               </div> 
               <div class="col-xl-6 col-lg-6 col-md-12 col-12 d-flex">
                 <span>👉</span>
@@ -175,14 +191,14 @@
                 <div class="boll"></div>
                 <div class="heading">
                   <h5>Harsh Kumar Jangid</h5>
-                  <p class="subHeadingSumary">I am a passionate frontend developer with over 1.5 years of hands-on experience in Angular, Ionic, and WordPress. My expertise lies in creating responsive, user-friendly web applications, as well as developing mobile apps. I have a strong background in both design and development, and I am always looking to improve my skills and take on new challenges.</p>
+                  <p class="subHeadingSumary">I am a passionate frontend developer with over 1.9 years of hands-on experience in Angular, Ionic, and WordPress. My expertise lies in creating responsive, user-friendly web applications, as well as developing mobile apps. I have a strong background in both design and development, and I am always looking to improve my skills and take on new challenges.</p>
                 </div>
 
                 <div class="subData">
                   <ul class="list ps-0">
                     <li>Deeg Gate, Mathura</li>
-                    <li>+123132133</li>
-                    <li>{{'harshsharmaa385@gmail.com'}}</li>
+                    <li>+91 8979679309</li>
+                    <li>{{'harsh.jangid2912gmail.com'}}</li>
                   </ul>
                 </div>
               </div>
@@ -223,7 +239,7 @@
                     <li>Developed & optimized "Spin the Wheel", increasing user engagement by 40% with smooth animations & API-driven rewards.</li>
                     <li>Engineered a Kit Management System, improving inventory tracking efficiency by 30% through real-time updates & admin panel integration.</li>
                     <li>Built an Award Nomination Platform, automating real-time nomination processing, reducing manual workload by 25%, and enhancing user experience.</li>
-                    <li>Implemented state management (RxJS & NgRx), ensuring seamless data handling & improved app performance.</li>
+                    <li>Implemented state management RxJS, ensuring seamless data handling & improved app performance.</li>
                     <li>Enhanced UI/UX with Angular Material & PrimeNG, optimizing component-based designs for scalability & responsiveness.</li>
                     <li>Integrated RESTful APIs, streamlining data communication & boosting application efficiency.</li>
                     <li>Optimized website performance & SEO, leading to faster load times & improved user retention.</li>
@@ -267,7 +283,23 @@
 
         <div class="projectDiv">
           <div class="row gy-3 mx-0 justify-content-center">
-            <div class="col-auto">
+
+            <div class="col-md-8 col-12">
+              <div class="project">
+                <h3>Gifter Clone</h3>
+                <ul>
+                  <li>Developed a high-performance Gifter application clone leveraging Angular for robust, scalable architecture.</li>
+                  <li>Integrated complex JSON-based data management.</li>
+                  <li>Employed modular component-based design principles, optimizing for maintainability and reusability across the project.</li>
+                  <li>Demonstrated expertise in Angular’s two-way data binding, event handling, and service integration for enhanced user experience.</li>
+                </ul>
+               
+                <p><strong>Technologies:</strong> HTML, CSS, Bootstrap, Angular, Dynamic Data Handling</p>
+
+              </div>
+            </div>
+            
+            <div class="col-md-4 col-12 my-3 my-md-0 d-flex">
               <div class="projectInnerDiv">
                 <div class="tintBox">
                   <a href="https://harshsharma2912.github.io/Gifter_Clone_Live/" target="_blank">
@@ -277,59 +309,65 @@
                 </div>
                 <img src="assets/images/projectImage.jpg"  class="imageZoom img-fluid" alt=""> 
               </div>
-            </div>
+            </div> 
 
-            <div class="col-auto">
-              <div class="projectInnerDiv">
-                <div class="tintBox">
-                  <a href="https://harshsharma2912.github.io/Gifter_Clone_Live/" target="_blank">
-                    <fa-icon [icon]="faCoffee" class="pointer projectLink">
-                    </fa-icon> 
-                  </a>
-                </div>
-                <img src="assets/images/projectImage.jpg"  class="imageZoom img-fluid" alt=""> 
+
+
+
+
+            <div class=" col-12">
+              <div class="project">
+                <h3>Spin the Wheel</h3>
+                <ul>
+                  <li>Engineered a fully customizable spin-the-wheel game that dynamically adapts to user preferences with minimal configuration.</li>
+                  <li>Implemented a dynamic data structure capable of generating and handling any number of sectors with real-time updates.</li>
+                  <li>Developed advanced control mechanisms, allowing for precise targeting of specific sectors through programmable stop points.</li>
+                  <li>Optimized application performance by refining animations for fluid user interaction and real-time responsiveness.</li>
+                </ul>
+                <p><strong>Technologies:</strong> HTML, CSS, Bootstrap, Angular, Reactive Forms, Dynamic Data Handling</p>
               </div>
             </div>
 
 
-            <div class="col-lg-auto col-auto">
-              <div class="projectInnerDiv">
-                <div class="tintBox">
-                  <a href="https://harshsharma2912.github.io/Gifter_Clone_Live/" target="_blank">
-                    <fa-icon [icon]="faCoffee" class="pointer projectLink">
-                    </fa-icon> 
-                  </a>
-                </div>
-                <img src="assets/images/projectImage.jpg"  class="imageZoom img-fluid" alt=""> 
+
+            <div class=" col-12 my-md-4 my-3">
+              <div class="project">
+                <h3>Kit Management System</h3>
+                <ul>
+                  <li>Designed a comprehensive system to manage kits and sub-kits, incorporating user-defined attributes such as size, color, and preferences.</li>
+                  <li>Structured sub-kits with complex item collections, including clothing and accessories, to facilitate streamlined inventory management.</li>
+                  <li>Integrated RESTful APIs and microservices to enable secure, real-time data transactions between client and server.</li>
+                  <li>Ensured scalability by developing a flexible system architecture capable of handling large datasets and evolving requirements.</li>
+                </ul> 
+                <p><strong>Technologies:</strong> HTML, CSS, Bootstrap, Angular, Reactive Forms, Microservices, Dynamic Data Handling</p>
+
               </div>
             </div>
 
 
-            <div class="col-lg-auto col-auto">
-              <div class="projectInnerDiv">
-                <div class="tintBox">
-                  <a href="https://harshsharma2912.github.io/Gifter_Clone_Live/" target="_blank">
-                    <fa-icon [icon]="faCoffee" class="pointer projectLink">
-                    </fa-icon> 
-                  </a>
-                </div>
-                <img src="assets/images/projectImage.jpg"  class="imageZoom img-fluid" alt=""> 
+
+
+            <div class=" col-12">
+              <div class="project">
+                <h3>Reward Distribution System</h3>
+                <ul>
+                  <li>Engineered a dynamic reward distribution platform to collect and process user data for personalized reward allocation.</li>
+                  <li>Utilized Angular Reactive Forms to build intuitive, highly customizable input fields that respond to user input with precision.</li>
+                  <li>Integrated secure microservices architecture to handle sensitive user data and ensure real-time processing efficiency.</li>
+                  <li>Developed a flexible reward system capable of adapting to multiple distribution rules and scenarios, enhancing system versatility.</li>
+                </ul> 
+                <p><strong>Technologies:</strong> HTML, CSS, Bootstrap, Angular, Reactive Forms, Microservices, Dynamic Data Handling</p>
+
               </div>
             </div>
 
 
-            <div class="col-lg-auto col-auto">
-              <div class="projectInnerDiv">
-                <div class="tintBox">
-                  <a href="https://harshsharma2912.github.io/Gifter_Clone_Live/" target="_blank">
-                    <fa-icon [icon]="faCoffee" class="pointer projectLink">
-                    </fa-icon> 
-                  </a>
-                </div>
-                <img src="assets/images/projectImage.jpg"  class="imageZoom img-fluid" alt=""> 
-              </div>
-            </div>
-          </div>
+            
+            
+            
+            
+            
+          </div> 
         </div>
 
 
@@ -391,7 +429,7 @@
                 <div>
                   <h4>API Integration & Development</h4>
                  <p>Seamlessly connect web with RESTful APIs.</p>
-                 <p>Improve data fetching, performance, and real-time updates using RxJS & NgRx.</p>
+                 <p>Improve data fetching, performance, and real-time updates using RxJS.</p>
                 </div>
               </div>
             </div>

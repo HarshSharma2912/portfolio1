@@ -77,7 +77,9 @@ export class HomeComponent  {
  
   }
 
-  textToType:any=[{"text" : "Freelancer"},{"text" : "Frontend Developer"},{"text" : "Wordpress Developer"}];
+  textToType:any=[{"text" : "Freelancer"},
+    // {"text" : "Frontend Developer"},
+    {"text" : "Wordpress Developer"}];
 
 
 
@@ -162,22 +164,22 @@ export class HomeComponent  {
     },
     {
       "text" : "Js", 
-      "width" : "10%", 
+      "width" : "80%", 
       "name" : "--java"
     },
     {
       "text" : "Angular", 
-      "width" : "100%",
+      "width" : "80%",
       "name" : "--python"
     },
     {
       "text" : "Ionic", 
-      "width" : "100%",
+      "width" : "60%",
       "name" : "--ionic"
     },
     {
       "text" : "WordPress", 
-      "width" : "100%",
+      "width" : "70%",
       "name" : "--wordpress"
     } 
   ]
@@ -185,6 +187,11 @@ export class HomeComponent  {
   dynamicWidth:any = "80%"; 
 
   formarr:any = [{'val':"harsh"},{'val':"harsh"},{'val':"harsh"}];
+
+
+  
+  
+  
 
   ngOnInit(): void {
      this.setStyle('--dynamic-width', '80%');
@@ -252,7 +259,16 @@ export class HomeComponent  {
     this.opened = status;
     const target = document.getElementById(targetId);
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 0);
+      
+    }
+
+    
+    if(!this.isLargeScreen){
+       this.opened = false;
     }
   }
 

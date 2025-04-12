@@ -69,6 +69,23 @@
     }
   }
   
+
+ .profileImage{
+  height: auto;
+  width: 131px;
+  position: relative;
+  left: -21px;
+  bottom: 12px;
+ }
+
+ .hamburger{
+  z-index: 100;
+    font-size: 30px;
+    margin: 10px;
+    position: fixed;
+    top: 3px;
+    right: 20px;
+ }
   
 
 
