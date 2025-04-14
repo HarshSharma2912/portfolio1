@@ -1,4 +1,4 @@
-import { Component ,HostListener} from '@angular/core';
+import { AfterViewInit, Component ,HostListener} from '@angular/core';
 import { Directive, ElementRef, Renderer2, Input, OnInit } from '@angular/core';
 import { AnimateOnScrollDirective } from '../directives/animate-on-scroll.directive';
 import {MatButtonModule} from '@angular/material/button';
@@ -19,7 +19,7 @@ import { BehaviorSubject } from 'rxjs';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent  {
+export class HomeComponent implements OnInit, AfterViewInit {
 
   faCoffee = faLink;
 
@@ -75,6 +75,16 @@ export class HomeComponent  {
   constructor(private render:Renderer2, private el:ElementRef){
     this.typingFun();
  
+  }
+
+  isViewInit:boolean = false;
+  isAnimationOver:boolean = false;
+  ngAfterViewInit(): void {
+    this.isViewInit = true;
+    setTimeout(() => {
+      // this.isAnimationOver = true;
+    }, 2000);
+    throw new Error('Method not implemented.');
   }
 
   textToType:any=[{"text" : "Freelancer"},

@@ -1,4 +1,24 @@
 /* Fade-in Animation */
+.cover{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color:var(--lightBlack);
+  z-index: 100;
+  animation:  openFrame 2s forwards; 
+}
+
+ 
+@keyframes openFrame {
+  from { 
+    transform: translateY(0);
+  }
+  to { 
+    transform: translateY(-100%);
+  }
+}
+
+
 .animate-fade-in {
     animation: fadeIn 1s ease-out forwards;
     display: block !important;

@@ -1,4 +1,14 @@
 <!-- @if (shouldRun) { -->
+
+@if(isViewInit && !isAnimationOver){
+  <div class="cover">
+  
+  </div>
+
+}
+
+
+
 <mat-sidenav-container class="matContainer" >
   <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
     (closed)="events.push('close!')">
@@ -107,9 +117,8 @@
             <div class="col-12 p-0">
             <div class="row mx-0">
               <div class="col-12">
-                <h3>Frontend Developer and Wordpress Developer</h3>
-                <p class="subHeading">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim ea repellat
-                  obcaecati.</p>
+                <h3>Frontend Developer</h3>
+                <p class="subHeading">I specialize in Angular development, building clean and interactive user interfaces. Constantly exploring the latest frontend trends to deliver modern, high-performance applications..</p> 
               </div> 
               <div class="col-xl-6 col-lg-6 col-md-12 col-12 d-flex">
                 <span>👉</span>
@@ -195,7 +204,7 @@
                 <div class="boll"></div>
                 <div class="heading">
                   <h5>Harsh Kumar Jangid</h5>
-                  <p class="subHeadingSumary">I am a passionate frontend developer with over 1.9 years of hands-on experience in Angular, Ionic, and WordPress. My expertise lies in creating responsive, user-friendly web applications, as well as developing mobile apps. I have a strong background in both design and development, and I am always looking to improve my skills and take on new challenges.</p>
+                  <p class="subHeadingSumary">I have 1.9 years of experience as a Frontend Developer, with a strong focus on Angular for building dynamic and responsive web applications. I also have experience using Ionic for Android app development and WordPress for creating responsive website designs. I'm passionate about clean, efficient code and continuously enhancing user experiences.</p>
                 </div>
 
                 <div class="subData">
