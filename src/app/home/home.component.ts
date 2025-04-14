@@ -2,26 +2,36 @@ import { AfterViewInit, Component ,HostListener} from '@angular/core';
 import { Directive, ElementRef, Renderer2, Input, OnInit } from '@angular/core';
 import { AnimateOnScrollDirective } from '../directives/animate-on-scroll.directive';
 import {MatButtonModule} from '@angular/material/button';
-import {FormsModule} from '@angular/forms';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faL, faLink } from '@fortawesome/free-solid-svg-icons';
 import { style } from '@angular/animations';
 import { BehaviorSubject } from 'rxjs';
+
+import emailjs from 'emailjs-com';
+
+
+
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
  
 
 
 @Component({ 
   selector: 'app-home',
   standalone: true,
-  imports: [FontAwesomeModule,AnimateOnScrollDirective,MatSidenavModule, MatCheckboxModule, FormsModule, MatButtonModule],
+  imports: [FontAwesomeModule,CommonModule, AnimateOnScrollDirective,MatSidenavModule, MatCheckboxModule, ReactiveFormsModule, MatButtonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit, AfterViewInit {
 
   faCoffee = faLink;
+
+  contactForm: FormGroup;
+  submitted = false;
 
   events: string[] = [];
   opened: boolean = true;
@@ -72,8 +82,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.opened = this.isLargeScreen;
   }
   
-  constructor(private render:Renderer2, private el:ElementRef){
+  constructor(private render:Renderer2, private el:ElementRef,private fb: FormBuilder){
     this.typingFun();
+    this.contactForm = this.fb.group({
+      name: ['', Validators.required],
+      mobile: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      email: ['', [Validators.required, Validators.email]],
+      message: ['', Validators.required],
+    });
  
   }
 
@@ -289,9 +305,29 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
  
 
- 
-  
+  isControlInvalid(controlName: string, errorName: string) {
+    const control = this.contactForm.get(controlName);
+    return (this.submitted || control?.touched) && !!control?.hasError(errorName);
+  }
 
+  onSubmit(): void {
+    this.submitted = true;
+
+    if (this.contactForm.valid) {
+      const formData = this.contactForm.value;
+
+      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData, 'YOUR_PUBLIC_KEY')
+        .then(() => {
+          alert('Message sent successfully!');
+          this.contactForm.reset();
+          this.submitted = false;
+        })
+        .catch((error) => {
+          console.error('Error sending email:', error);
+          alert('Failed to send message. Please try again.');
+        });
+    }
+  }
 
 
 }

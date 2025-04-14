@@ -284,3 +284,50 @@
 .resumeLink{
   color:var(--blueDark)
 }
+
+
+
+
+.contact-form  {
+  border: solid 2px;
+  border-radius: 13px;
+  width: 400px;
+  margin: auto;
+  padding: 15px;
+  // line-height: 30px;
+
+  input, textarea{
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  button{
+    background: var(--black);
+    border: solid;
+    border-radius: 12px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
