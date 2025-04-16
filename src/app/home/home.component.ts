@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   events: string[] = [];
   opened: boolean = true;
+  value:any = "side";
 
   sideNameArray :any = [
     {
@@ -80,6 +81,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   onResize(event: Event) {
     this.isLargeScreen = window.innerWidth > 768;
     this.opened = this.isLargeScreen;
+    if(!this.isLargeScreen){
+         this.value = "over";
+    }
   }
   
   constructor(private render:Renderer2, private el:ElementRef,private fb: FormBuilder){
@@ -90,6 +94,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       email: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required],
     });
+
  
   }
 
@@ -97,6 +102,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   isAnimationOver:boolean = false;
   ngAfterViewInit(): void {
     this.isViewInit = true;
+    if(!this.isLargeScreen){
+      this.value = "over";
+ }
     setTimeout(() => {
       // this.isAnimationOver = true;
     }, 2000);
@@ -281,24 +289,40 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
   
 
-
-  scrollToSection(targetId:any, status:boolean): void {
-    this.opened = status;
-    const target = document.getElementById(targetId);
-    if (target) {
-      // target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setTimeout(() => {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 0);
-      
-    }
-
+  scrollToSection(targetId: string, status: boolean): void {
     
-    if(!this.isLargeScreen){
-       this.opened = false;
-    }
-  }
+    // if (!this.isLargeScreen) {
+    //   // Wait for scroll animation before closing menu
+    //   setTimeout(() => {
+    //     this.opened = status;
+    //     this.opened = false;
+    //   }, 500); // Adjust delay as needed
+    // }
 
+    // return;
+  
+    setTimeout(() => {
+      const target = document.getElementById(targetId);
+      console.log("target =>", target);
+      this.opened = status;
+
+  
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  
+        if (!this.isLargeScreen) {
+          // Wait for scroll animation before closing menu
+          setTimeout(() => {
+            this.opened = false;
+            
+          }, 500); // Adjust delay as needed
+        }
+      } else {
+        console.warn('Scroll target not found:', targetId);
+      }
+    }, 100); // Wait a bit to ensure menu opens before scroll
+  }
+  
   
   toggleSlider(){
     this.opened = true;

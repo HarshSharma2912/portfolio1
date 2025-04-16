@@ -10,7 +10,7 @@
 
 
 <mat-sidenav-container class="matContainer" >
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+  <mat-sidenav #sidenav [mode]="value" [(opened)]="opened" (opened)="events.push('open!')"
     (closed)="events.push('close!')">
 
     @if (opened){
@@ -47,6 +47,11 @@
         @for(item of sideNameArray; track item){
         <div class="box d-flx my-4">
           <div>{{item.icon}}</div>
+          <!-- <div class="menu pointer"  >
+            <a href="#{{item.id}}"  (click)="scrollToSection(item.id, false)"> 
+              {{item.heading}}
+            </a>
+          </div> -->
           <div class="menu pointer" (click)="scrollToSection(item.id, true)">{{item.heading}}</div>
         </div> 
         }
@@ -57,6 +62,12 @@
         <div class="box d-flx my-4">
           <div>{{item.icon}}</div>
           <div class="menu pointer" (click)="scrollToSection(item.id, false)">{{item.heading}}</div>
+          <!-- <div class="menu pointer"  >
+            <a href="#{{item.id}}"  (click)="scrollToSection(item.id, false)">
+
+              {{item.heading}}
+            </a>
+          </div> -->
         </div> 
         }
       </div>
@@ -285,7 +296,7 @@
 
 
       <!-- <section id="section5" class="firstHide px-3 "  appAnimateOnScroll="animate-fade-in" appAnimateOnScroll="animate-bottom-to-top" > -->
-        <section id="section5" class="  px-3 "   >
+        <section id="section5" class="  px-3 "   appAnimateOnScroll="animate-fade-in" appAnimateOnScroll="animate-bottom-to-top" >
         <div class="headingSection position-relative mb-4">
           <h1 appAnimateOnScroll="backGround" class="heading mb-0">Projects</h1>
           <div class="underLine mt-2"></div>

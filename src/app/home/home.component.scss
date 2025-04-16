@@ -61,7 +61,10 @@
     opacity: 0;
   }
   
- 
+  .scroll-target {
+    scroll-margin-top: 80px; /* match your header height */
+  }
+  
   
   @keyframes zoomIn {
     from {
