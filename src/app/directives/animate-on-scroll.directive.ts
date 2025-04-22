@@ -8,7 +8,7 @@ import { Directive, ElementRef, Renderer2, Input, OnInit } from '@angular/core';
 })
 export class AnimateOnScrollDirective implements OnInit {
   @Input('appAnimateOnScroll') animationClass: string = 'animate-fade-in';
-  @Input() threshold: number = .3; // Optional: Customize when the animation triggers
+  @Input() threshold: number = .05; // Optional: Customize when the animation triggers
 
   constructor(private el: ElementRef, private renderer: Renderer2) {
     // if( window.innerWidth > 768){

@@ -216,6 +216,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
       "text" : "WordPress", 
       "width" : "70%",
       "name" : "--wordpress"
+    },
+    {
+      "text" : "Java", 
+      "width" : "70%",
+      "name" : "--Java"
+    },
+    {
+      "text" : "Node.js", 
+      "width" : "70%",
+      "name" : "--Nodejs"
     } 
   ]
 
