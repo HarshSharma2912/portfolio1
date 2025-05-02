@@ -12,7 +12,7 @@
 <mat-sidenav-container class="matContainer" >
   <mat-sidenav #sidenav [mode]="value" [(opened)]="opened" (opened)="events.push('open!')"
     (closed)="events.push('close!')">
-
+ 
     @if (opened){
     } 
     <!-- <p class=" ">
@@ -131,7 +131,7 @@
               <div class="col-xl-6 col-lg-6 col-md-12 col-12 d-flex">
                 <span>👉</span>
                 <p class="fw-bold mx-2">Phone:</p>
-                <p class="bioValue">8979679309</p>
+                <p class="bioValue"><a class="mailPhoneLink" href="tel:8979679309">8979679309</a></p>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-12 col-12 d-flex">
                 <span>👉</span>
@@ -146,7 +146,7 @@
               <div class="col-xl-6 col-lg-6 col-md-12 col-12 d-flex">
                 <span>👉</span>
                 <p class="fw-bold mx-2">Email:</p>
-                <p class="bioValue">{{'harsh.jangid2912@gmail.com'}}</p>
+                <p class="bioValue">  <a class="mailPhoneLink" href="mailto:harsh.jangid2912@gmail.com" >{{'harsh.jangid2912@gmail.com'}}</a></p>
               </div> 
               <div class="col-xl-6 col-lg-6 col-md-12 col-12 d-flex">
                 <span>👉</span>
@@ -218,8 +218,9 @@
                 <div class="subData">
                   <ul class="list ps-0">
                     <li>Deeg Gate, Mathura</li>
-                    <li>+91 8979679309</li>
-                    <li>{{'harsh.jangid2912@gmail.com'}}</li>
+                    <li>
+                      <a class="mailPhoneLink" href="tel:8979679309">+91 8979679309</a></li>
+                    <li><a class="mailPhoneLink" href="mailto:harsh.jangid2912@gmail.com" >{{'harsh.jangid2912@gmail.com'}}</a></li>
                   </ul>
                 </div>
               </div>
